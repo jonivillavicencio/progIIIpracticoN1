@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Productos() {
   const productos = [
     { id: 1, nombre: "Cera", precio: "$3000" },
@@ -22,6 +24,8 @@ export default function Productos() {
           </div>
         ))}
       </div>
+
+      <Link href="/barberia">Volver al Inicio</Link>
     </div>
   );
 }
