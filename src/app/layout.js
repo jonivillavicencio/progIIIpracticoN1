@@ -25,22 +25,24 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-screen flex flex-col">
-      <nav>
-          <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
-            <h1 className="text-lg font-bold">BARBER APP</h1>
-            <div className="flex gap-4 text-zinc-500">
+      <nav className="bg-mauve-900 text-white px-20">
+          <section className="w-full flex justify-between tems-center p-12">
+            <article className="flex">
+              <h1 className="text-lg font-bold">Cortes & Navajas</h1>
+            </article>
+            <article className="flex items-center gap-6 text-zinc-300">
               <Link href={"/"} className=" hover:text-white">Home</Link>
               <Link href={"/barberia"} className=" hover:text-white">Barber</Link>
               <Link href={"/barbero"} className=" hover:text-white">Barbero</Link>
               <Link href={"/cortes"} className=" hover:text-white">Cortes</Link>
               <Link href={"/productos"} className=" hover:text-white">Productos</Link>
-            </div>
-          </div>
+            </article>
+          </section>
       </nav>
       <main className="flex-1">
         {children}
       </main>
-      <footer className="w-full border-t border-zinc-200 dark:border-zinc-800">
+      <footer className="w-full border-t py-8 bg-mauve-950 text-zinc-500 border-zinc-200 dark:border-zinc-800">
         <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
           <p>©Copyright 2026</p>
           <p>3erTiempo</p>
