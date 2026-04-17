@@ -24,37 +24,31 @@ export default function Cortes() {
   };
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">Cortes</h1>
+    <section>
+      <header className="bg-green-950 flex flex-col py-30 justify-center items-center">
+        <h1 className="text-6xl font-bold text-white">Cortes</h1>
+        <p className="mt-8 text-white text-2xl font-sans">Conoce todos nuestros tipos de cortes disponibles.</p>
+      </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="flex p-40 justify-around flex-wrap bg-mauve-800 ">
         {cortes.map((corte) => (
           <div
             key={corte.id}
-            className="border p-4 rounded-xl shadow-md"
+            className="flex flex-col justify-around bg-mauve-900 px-10 py-20 border-amber-500 border-2 rounded-xl hover:scale-110 transition duration-400 h-80 w-70"
           >
-            <h2 className="text-xl font-semibold">{corte.nombre}</h2>
-            <p className="text-amber-300">{corte.precio}</p>
+            <h2 className="text-white text-2xl font-semibold">{corte.nombre}</h2>
+            <p className="mt-2 mb-2 text-amber-500 text-xl">{corte.precio}</p>
 
             <button
               onClick={() => reservar(corte.nombre)}
-              className="mt-2 bg-amber-50 text-red-800 px-3 py-1 rounded hover:bg-gray-800 transition"
+              className="mt-2 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-500 transition duration-300 font-semibold inline-block"
             >
               Reservar
             </button>
           </div>
         ))}
       </div>
-        <div className="mt-8">
-          <Link 
-            href="/"
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition"
-          >
-            Volver al Inicio
-          </Link>
-        </div>
 
-      {/* TOAST estilo WhatsApp */}
       <div
         className={`fixed top-5 right-5 transform transition-all duration-500 ${
           visible
@@ -67,6 +61,6 @@ export default function Cortes() {
           <span>{mensaje}</span>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

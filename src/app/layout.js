@@ -28,12 +28,12 @@ export default function RootLayout({ children }) {
       <nav className="bg-mauve-900 text-white px-20">
           <section className="w-full flex justify-between tems-center p-12">
             <article className="flex">
-              <h1 className="text-lg font-bold">Cortes & Navajas</h1>
+              <h1 className="text-lg font-bold text-amber-400">Cortes & Navajas</h1>
             </article>
             <article className="flex items-center gap-6 text-zinc-300">
               <Link href={"/"} className=" hover:text-white">Home</Link>
               <Link href={"/barberia"} className=" hover:text-white">Barber</Link>
-              <Link href={"/barbero"} className=" hover:text-white">Barbero</Link>
+              <Link href={"/barbero"} className=" hover:text-white">Barberos</Link>
               <Link href={"/cortes"} className=" hover:text-white">Cortes</Link>
               <Link href={"/productos"} className=" hover:text-white">Productos</Link>
             </article>
