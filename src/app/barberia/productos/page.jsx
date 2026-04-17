@@ -24,8 +24,14 @@ export default function Productos() {
           </div>
         ))}
       </div>
-
-      <Link href="/barberia">Volver al Inicio</Link>
+        <div className="mt-8">
+        <Link 
+            href="/"
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition"
+        >
+            Volver al Inicio
+        </Link>
+        </div>
     </div>
   );
 }
