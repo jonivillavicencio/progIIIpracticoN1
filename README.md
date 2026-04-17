@@ -34,3 +34,24 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+### Proyecto Barber App
+Este proyecto es una aplicacion web desarrollada con Next.js para una barberia. Permite visualizar servicios, navegar entre secciones y simular una reserva de turnos.
+
+Funcionalidades
+- Página de inicio 
+- Sección de cortes y servicios
+- Navegación entre páginas
+- Botón de reservas con notificaiones estilo WhatsApp
+- Diseño moderno con Tailwind CSS
+
+Grupo N°9 3er Tiempo
+
+Integrantes del grupo
+- Ivan Daniel Escobar
+- Santiago Garay
+- Matias Ibarra
+- Jonatan Villavicencio
+
