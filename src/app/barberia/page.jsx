@@ -7,9 +7,10 @@ export default function Barberia() {
         Sección Barbería:
       </h2>
       <div className="bg-gray-900 text-white p-4 flex gap-4">
-    
         <Link href="/barberia/productos">Ver Nuestros Productos</Link>
-      </div>
+        <Link href="/cortes">Ver Nuestros Cortes</Link>
+        <Link href="/barbero">Ver Nuestros Barberos</Link>
+        </div>
     </div>
   );
 }

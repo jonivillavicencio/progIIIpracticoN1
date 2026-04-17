@@ -9,24 +9,34 @@ export default function Barberos() {
 
   return (
     <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">Barberos</h1>
+        <h1 className="text-3xl font-bold mb-4">Barberos</h1>
 
-      <div className="grid gap-4">
+        <div className="grid gap-4">
         {barberos.map((barbero) => (
-          <Link
+            <Link
             key={barbero.id}
             href={`/barbero/${barbero.id}`}
             className="border p-4 rounded-xl shadow hover:bg-emerald-900 transition"
-          >
+            >
             <h2 className="text-xl font-semibold">
-              {barbero.nombre}
+                {barbero.nombre}
             </h2>
             <p className="text-purple-700">
-              Especialidad: {barbero.especialidad}
+                Especialidad: {barbero.especialidad}
             </p>
-          </Link>
+            </Link>
         ))}
-      </div>
+        </div>
+            
+        <div className="mt-8">
+          <Link 
+            href="/"
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition"
+          >
+            Volver al Inicio
+          </Link>
+        </div>
     </div>
+    
   );
 }
