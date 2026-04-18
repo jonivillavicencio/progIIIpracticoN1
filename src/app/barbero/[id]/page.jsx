@@ -29,7 +29,7 @@ export default async function BarberoDetalle({ params }) {
         <p className="text-2xl font-sans text-zinc-300">
           {barbero.descripcion}
         </p>
-        <Link href={"/barbero"} className="bg-mauve-600 py-4 px-10 rounded-2xl mt-20"> Ver todos los barberos
+        <Link href={"/barbero"} className="bg-emerald-800 text-white font-sans py-4 px-10 rounded-2xl mt-20 hover:scale-110 inline-block"> Ver todos los barberos
         </Link>
         </article>
     </section>
