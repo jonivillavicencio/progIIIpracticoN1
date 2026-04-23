@@ -3,6 +3,7 @@ import Link from "next/link";
 export default function ProductosBarba() {
     const productos = [
     { id: 1, nombre: "Aceite para barba", precio: "$4000", descripcion: "Aceite hidratante y acondicionador para barba." },
+    { id: 2, nombre: "Peine para barba", precio: "$1500", descripcion: "Peine de madera para desenredar y dar forma a la barba." },
     ];
 
     return (
@@ -12,7 +13,7 @@ export default function ProductosBarba() {
         <p className="mt-8 text-white text-2xl font-sans">Productos de calidad para el cuidado y estilo personal.</p>
         </header>
 
-        <div className="gap-4m-12 flex p-40 justify-around flex-wrap bg-mauve-800 min-h-screen">
+        <div className="mt-30 flex p-10 gap-50 justify-center flex-wrap bg-mauve-800 mb-30">
         {productos.map((p) => (
             <div
             key={p.id}
@@ -35,12 +36,12 @@ export default function ProductosBarba() {
         ))}
         </div>
         <div className="bg-mauve-800 p-8 flex justify-center">
-        <Link 
-            href="/"
-            className="bg-emerald-800 text-white px-8 py-4 rounded-lg hover:bg-emerald-700 transition font-semibold border-amber-300 border-2 inline-block shadow-md hover:shadow-lg"
-        >
-            Volver al Inicio
-        </Link>
+            <Link 
+                href="/"
+                className="bg-emerald-800 text-white px-8 py-4 rounded-lg hover:bg-emerald-700 transition font-semibold border-amber-300 border-2 inline-block shadow-md hover:shadow-lg"
+            >
+                Volver al Inicio
+            </Link>
         </div>
     </section>
     );

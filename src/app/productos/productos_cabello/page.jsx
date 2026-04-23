@@ -13,7 +13,7 @@ export default function ProductosCabello() {
         <p className="mt-8 text-white text-2xl font-sans">Productos de calidad para el cuidado y estilo personal.</p>
         </header>
 
-        <div className="gap-4m-12 flex p-40 justify-around flex-wrap bg-mauve-800 min-h-screen">
+        <div className=" mt-30 flex p-10 gap-50 justify-center flex-wrap mb-30 bg-mauve-800 ">
         {productos.map((p) => (
             <div
             key={p.id}
