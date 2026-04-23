@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
               <Link href={"/barberia"} className=" hover:text-white">Barber</Link>
               <Link href={"/barbero"} className=" hover:text-white">Barberos</Link>
               <Link href={"/cortes"} className=" hover:text-white">Cortes</Link>
-              <Link href={"/cortes/productos"} className=" hover:text-white">Productos</Link>
+              <Link href={"/productos"} className=" hover:text-white">Productos</Link>
             </article>
           </section>
       </nav>

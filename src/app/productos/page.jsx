@@ -8,12 +8,13 @@ export default function Productos() {
   ];
 
   return (
-    <section>
+    <section className="flex flex-col w-full">
       <header className="bg-green-950 flex flex-col py-50 justify-center items-center">
         <h1 className="text-6xl font-bold text-white">Productos Premium</h1>
         <p className="mt-8 text-white text-2xl font-sans">Productos de calidad para el cuidado y estilo personal.</p>
       </header>
 
+{/*
       <div className="gap-4m-12 flex p-40 justify-around flex-wrap bg-mauve-800 min-h-screen">
         {productos.map((p) => (
           <div
@@ -33,10 +34,10 @@ export default function Productos() {
                 Comprar
               </button>
             </div>
-          </div>
+          </div>"""
         ))}
       </div>
-
+*/}
       <div className="bg-mauve-800 p-8 flex justify-center">
         <Link 
             href="/"
