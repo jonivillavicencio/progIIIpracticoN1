@@ -1,5 +1,17 @@
-export default function Barberia() {
+import Carrusel from '../components/Carrusel';
 
+export default function Barberia() {
+    const misImagenes = [
+    {
+      url: '/marca1.png',
+    },
+    {
+      url: '/marca2.png',
+    },
+    {
+      url: '/marca3.png',
+    },
+  ];
 
 return (
   <div>
@@ -23,6 +35,10 @@ return (
           </p>
         </section>
     </div>
+    <main className="flex min-h-180 flex-col items-center justify-center p-5 bg-mauve-800">
+      <h1 className="text-6xl text-white font-bold mb-30 p-10 text-center border-b">Marcas que confían en nosotros</h1>
+      <Carrusel slides={misImagenes} />
+    </main>
   </div>
   );
 }
