@@ -1,11 +1,29 @@
 import Link from "next/link";
 import Tarjeta from "@/components/Tarjeta";
 
-export default function ProductosCabello() {
-    const productos = [
-    { id: 1, nombre: "Cera", precio: "$3000", descripcion: "Cera de acabado mate para un control máximo." },
-    { id: 2, nombre: "Gel", precio: "$2500", descripcion: "Gel de fijación fuerte y brillo natural." },
-    ];
+
+async function getProductosFakeStore() {
+const res = await fetch("https://fakestoreapi.com/products", {
+    next: { revalidate: 3600 } // Cachea los datos por una hora
+});
+
+if (!res.ok) {
+    throw new Error("Error al conectar con la API");
+}
+
+const datosApi = await res.json();
+
+return datosApi.map((item) => ({
+    id: item.id,
+    imagen: item.image,
+    nombre: item.title,
+    precio: `$${Math.round(item.price * 500)}`,
+    descripcion: item.descripcion
+}));
+}
+export default async function ProductosCabello() {
+    const productos = await getProductosFakeStore();
+    
     return (
     <section className="flex flex-col w-full">
         <header className="bg-green-950 flex flex-col py-50 justify-center items-center">
