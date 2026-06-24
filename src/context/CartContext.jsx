@@ -18,8 +18,15 @@ export function CartProvider({ children }) {
     const agregarAlCarrito = (producto) => {
         const nuevoCarrito = [...carrito, producto];
         setCarrito(nuevoCarrito);
-        localstorage.setItem('carrito_barberia', JSON.stringify(nuevoCarrito));
+        localStorage.setItem('carrito_barberia', JSON.stringify(nuevoCarrito));
     };
+
+    const eliminarDelCarrito = (productoId) => {
+        const nuevoCarrito = carrito.filter((item) => item.id !== productoId);
+        setCarrito(nuevoCarrito);
+        localStorage.setItem('carrito_barberia', JSON.stringify(nuevoCarrito));
+    };
+
 
     const vacioCarrito = () => {
         setCarrito([]);
@@ -27,7 +34,7 @@ export function CartProvider({ children }) {
     };
 
     return (
-        <CartContext.Provider value={{ carrito, agregarAlCarrito, vacioCarrito }}>
+        <CartContext.Provider value={{ carrito, agregarAlCarrito, vacioCarrito, eliminarDelCarrito }}>
             {children}
         </CartContext.Provider>
     );
