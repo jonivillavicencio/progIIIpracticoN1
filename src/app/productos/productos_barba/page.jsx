@@ -1,11 +1,8 @@
 import Link from "next/link";
-import Tarjeta from "@/app/components/Tarjeta";
+import Tarjeta from "@/components/Tarjeta";
 
 export default function ProductosBarba() {
-    const productos = [
-        { id: 1, nombre: "Aceite para barba", precio: "$4000", descripcion: "Aceite hidratante y acondicionador para barba." },
-        { id: 2, nombre: "Peine para barba", precio: "$1500", descripcion: "Peine de madera para desenredar y dar forma a la barba." },
-    ];
+
     return (
         <section className="flex flex-col w-full">
             <header className="bg-green-950 flex flex-col py-50 justify-center items-center">

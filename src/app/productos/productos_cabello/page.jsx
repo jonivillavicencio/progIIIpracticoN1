@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Tarjeta from "@/app/components/Tarjeta";
+import Tarjeta from "@/components/Tarjeta";
 
 export default function ProductosCabello() {
     const productos = [

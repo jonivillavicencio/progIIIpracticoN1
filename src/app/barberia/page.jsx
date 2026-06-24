@@ -1,4 +1,4 @@
-import Carrusel from '../components/Carrusel';
+import Carrusel from '../../components/Carrusel';
 
 export default function Barberia() {
     const misImagenes = [
