@@ -1,7 +1,17 @@
 import Link from "next/link";
+import Tarjeta from "@/components/Tarjeta";
 
-export default function Productos() {
+async function getProductos() {
+  const res = await fetch("https://fakestoreapi.com/products?limit=4",{
+    next: { revalidate: 3600 } // se revalida cada 1 hora
+  });
+  if (!res.ok) throw new Error("Error al cargar la api");
+  return res.json();
+}
 
+
+export default async function Productos() {
+  const productosAPI = await getProductos();
 
   return (
     <section className="flex flex-col w-full">
@@ -12,7 +22,22 @@ export default function Productos() {
 
       <div className="gap-4m-12 flex p-40 justify-around flex-wrap bg-mauve-800">
         <p className="text-2xl text-white">Encontra aqui los porductos que necesites para tu cuidado personal y tu estilo.</p>
+        {/* api de productos*/}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full max-w-6xl mt-6">
+          {productosAPI.map((prod) => (
+            <Tarjeta 
+              key={prod.id}
+              producto={{
+                nombre: prod.title.slice(0, 25) + "...", // cortado para que no rompa el diseño
+                precio: `$${Math.round(prod.price * 500)}`, // Simula precio en pesos
+                descripcion: prod.description.slice(0, 60) + "...",
+                imagen:prod.image
+              }}
+            />
+          ))}
+        </div>
       </div>
+
       <div className="bg-mauve-800 p-8 flex justify-center">
         <Link 
             href="/"
