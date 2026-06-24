@@ -10,6 +10,7 @@ export default function Tarjeta({ producto }) {
     return (
     <div className="flex flex-col justify-between bg-mauve-900 px-8 py-10 border-amber-500 border-2 rounded-xl h-90 w-72">
         <div>
+        <img src={producto.imagen} alt={producto.nombre} className="w-full h-30 object-contain mb-4" />
         <h2 className="text-white text-2xl font-bold mb-2">{producto.nombre}</h2>
         <p className="text-zinc-300 text-sm mb-4">{producto.descripcion}</p>
         </div>
