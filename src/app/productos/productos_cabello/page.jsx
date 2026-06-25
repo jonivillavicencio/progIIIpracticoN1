@@ -18,7 +18,7 @@ return datosApi.map((item) => ({
     imagen: item.image,
     nombre: item.title,
     precio: `$${Math.round(item.price * 500)}`,
-    descripcion: item.descripcion
+    descripcion: item.description
 }));
 }
 export default async function ProductosCabello() {
@@ -30,10 +30,12 @@ export default async function ProductosCabello() {
         <h1 className="text-6xl font-bold text-white">Productos Premium</h1>
         <p className="mt-8 text-white text-2xl font-sans">Productos de calidad para el cuidado y estilo personal.</p>
         </header>
-        <div className="mt-30 flex p-10 gap-50 justify-center flex-wrap mb-30 bg-mauve-800">
-        {productos.map((p) => (
-            <Tarjeta key={p.id} producto={p} />
-        ))}
+        <div className="bg-mauve-800 py-12 px-10 w-full flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 justify-items-center w-full max-w-6xl">
+            {productos.map((p) => (
+                <Tarjeta key={p.id} producto={p} />
+            ))}
+            </div>
         </div>
         <div className="bg-mauve-800 p-8 flex justify-center">
         <Link 
