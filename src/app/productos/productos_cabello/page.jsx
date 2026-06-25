@@ -1,48 +1,50 @@
 import Link from "next/link";
+import Tarjeta from "@/components/Tarjeta";
 
-export default function ProductosCabello() {
-    const productos = [
-    { id: 1, nombre: "Cera", precio: "$3000", descripcion: "Cera de acabado mate para un control máximo." },
-    { id: 2, nombre: "Gel", precio: "$2500", descripcion: "Gel de fijación fuerte y brillo natural." },
-    ];
 
+async function getProductosFakeStore() {
+const res = await fetch("https://fakestoreapi.com/products", {
+    next: { revalidate: 3600 } // Cachea los datos por una hora
+});
+
+if (!res.ok) {
+    throw new Error("Error al conectar con la API");
+}
+
+const datosApi = await res.json();
+
+return datosApi.map((item) => ({
+    id: item.id,
+    imagen: item.image,
+    nombre: item.title,
+    precio: `$${Math.round(item.price * 500)}`,
+    descripcion: item.description
+}));
+}
+export default async function ProductosCabello() {
+    const productos = await getProductosFakeStore();
+    
     return (
     <section className="flex flex-col w-full">
         <header className="bg-green-950 flex flex-col py-50 justify-center items-center">
         <h1 className="text-6xl font-bold text-white">Productos Premium</h1>
         <p className="mt-8 text-white text-2xl font-sans">Productos de calidad para el cuidado y estilo personal.</p>
         </header>
-
-        <div className=" mt-30 flex p-10 gap-50 justify-center flex-wrap mb-30 bg-mauve-800 ">
-        {productos.map((p) => (
-            <div
-            key={p.id}
-            className="flex flex-col justify-between bg-mauve-900 px-8 py-10 border-amber-500 border-2 rounded-xl  h-90 w-72"
-            >
-            <div>
-                <h2 className="text-white text-2xl font-bold mb-2">{p.nombre}</h2>
-                <p className="text-zinc-300 text-sm mb-4">{p.descripcion}</p>
-            </div>
-            
-            <div>
-                <p className="text-amber-400 text-2xl font-bold mb-4">{p.precio}</p>
-                <button
-                className="w-full bg-amber-600 text-white px-4 py-3 rounded-lg hover:from-amber-500 hover:to-amber-400 transition duration-300 font-semibold shadow-md"
-            >
-                Comprar
-                </button>
+        <div className="bg-mauve-800 py-12 px-10 w-full flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 justify-items-center w-full max-w-6xl">
+            {productos.map((p) => (
+                <Tarjeta key={p.id} producto={p} />
+            ))}
             </div>
         </div>
-        ))}
-    </div>
-    <div className="bg-mauve-800 p-8 flex justify-center">
+        <div className="bg-mauve-800 p-8 flex justify-center">
         <Link 
             href="/"
             className="bg-emerald-800 text-white px-8 py-4 rounded-lg hover:bg-emerald-700 transition font-semibold border-amber-300 border-2 inline-block shadow-md hover:shadow-lg"
         >
             Volver al Inicio
         </Link>
-    </div>
+        </div>
     </section>
     );
 }

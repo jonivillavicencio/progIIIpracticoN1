@@ -1,7 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
-
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { CartProvider } from "../context/CartContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,29 +26,13 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-screen flex flex-col">
-      <nav className="bg-mauve-900 text-white px-20">
-          <section className="w-full flex justify-between tems-center p-12">
-            <article className="flex">
-              <h1 className="text-lg font-bold text-amber-400">Cortes & Navajas</h1>
-            </article>
-            <article className="flex items-center gap-6 text-zinc-300">
-              <Link href={"/"} className=" hover:text-white">Home</Link>
-              <Link href={"/barberia"} className=" hover:text-white">Barber</Link>
-              <Link href={"/barbero"} className=" hover:text-white">Barberos</Link>
-              <Link href={"/cortes"} className=" hover:text-white">Cortes</Link>
-              <Link href={"/productos"} className=" hover:text-white">Productos</Link>
-            </article>
-          </section>
-      </nav>
-      <main className="flex-1">
-        {children}
-      </main>
-      <footer className="w-full border-t py-8 bg-mauve-950 text-zinc-500 border-zinc-200 dark:border-zinc-800">
-        <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
-          <p>©Copyright 2026</p>
-          <p>3erTiempo</p>
-        </div>
-      </footer>
+      <CartProvider>
+        <Navbar/>
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer/>
+      </CartProvider>
       </body>
     </html>
   );
