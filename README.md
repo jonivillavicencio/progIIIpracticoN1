@@ -1,8 +1,13 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
+```bash
+npm i
+# or
+npm install
+```
 
-First, run the development server:
+## Run the App
 
 ```bash
 npm run dev
@@ -40,18 +45,19 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ### Proyecto Barber App
 Este proyecto es una aplicacion web desarrollada con Next.js para una barberia. Permite visualizar servicios, navegar entre secciones y simular una reserva de turnos.
 
+Integramos Fake Store API para simular una tienda en nuesta aplicación. 
+
+Grupo N°9 3er Tiempo
+
+Integrantes del grupo
+- Ivan Escobar
+- Santiago Garay
+- Matias Ibarra
+- Jonatan Villavicencio
+
 Funcionalidades
 - Página de inicio 
 - Sección de cortes y servicios
 - Navegación entre páginas
 - Botón de reservas con notificaiones estilo WhatsApp
 - Diseño moderno con Tailwind CSS
-
-Grupo N°9 3er Tiempo
-
-Integrantes del grupo
-- Ivan Daniel Escobar
-- Santiago Garay
-- Matias Ibarra
-- Jonatan Villavicencio
-
