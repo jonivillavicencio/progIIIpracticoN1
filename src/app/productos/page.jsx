@@ -23,7 +23,7 @@ export default async function Productos() {
       <div className="gap-4m-12 flex p-40 justify-around flex-wrap bg-mauve-800">
         <p className="text-2xl text-white">Encontra aqui los porductos que necesites para tu cuidado personal y tu estilo.</p>
         {/* api de productos*/}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full max-w-6xl mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-2 gap-50 w-full justify-items-center max-w-6xl mt-6">
           {productosAPI.map((prod) => (
             <Tarjeta 
               key={prod.id}

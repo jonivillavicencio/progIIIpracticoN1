@@ -1,21 +1,41 @@
 import Link from "next/link";
 import Tarjeta from "@/components/Tarjeta";
 
-export default function ProductosCabello() {
-    const productos = [
-    { id: 1, nombre: "Cera", precio: "$3000", descripcion: "Cera de acabado mate para un control máximo." },
-    { id: 2, nombre: "Gel", precio: "$2500", descripcion: "Gel de fijación fuerte y brillo natural." },
-    ];
+
+async function getProductosFakeStore() {
+const res = await fetch("https://fakestoreapi.com/products", {
+    next: { revalidate: 3600 } // Cachea los datos por una hora
+});
+
+if (!res.ok) {
+    throw new Error("Error al conectar con la API");
+}
+
+const datosApi = await res.json();
+
+return datosApi.map((item) => ({
+    id: item.id,
+    imagen: item.image,
+    nombre: item.title,
+    precio: `$${Math.round(item.price * 500)}`,
+    descripcion: item.description
+}));
+}
+export default async function ProductosCabello() {
+    const productos = await getProductosFakeStore();
+    
     return (
     <section className="flex flex-col w-full">
         <header className="bg-green-950 flex flex-col py-50 justify-center items-center">
         <h1 className="text-6xl font-bold text-white">Productos Premium</h1>
         <p className="mt-8 text-white text-2xl font-sans">Productos de calidad para el cuidado y estilo personal.</p>
         </header>
-        <div className="mt-30 flex p-10 gap-50 justify-center flex-wrap mb-30 bg-mauve-800">
-        {productos.map((p) => (
-            <Tarjeta key={p.id} producto={p} />
-        ))}
+        <div className="bg-mauve-800 py-12 px-10 w-full flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 justify-items-center w-full max-w-6xl">
+            {productos.map((p) => (
+                <Tarjeta key={p.id} producto={p} />
+            ))}
+            </div>
         </div>
         <div className="bg-mauve-800 p-8 flex justify-center">
         <Link 
